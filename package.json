@@ -1,19 +1,22 @@
 {
-  "name": "mealWatcher",
-  "version": "0.0.0",
-  "description": "Automatically make a shopping list by providing a recipe! Never have scrap ingredients lying around again!",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ozymandias547/mealWatcher.git"
-  },
-  "author": "Joseph Jung, Jeff Karova",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ozymandias547/mealWatcher/issues"
-  },
-  "homepage": "https://github.com/ozymandias547/mealWatcher"
+	"name": "mealWatcher",
+	"version": "0.0.0",
+	"description": "Automatically make a shopping list by providing a recipe! Never have scrap ingredients lying around again!",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ozymandias547/mealWatcher.git"
+	},
+	"author": "Joseph Jung, Jeff Karova",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ozymandias547/mealWatcher/issues"
+	},
+	"homepage": "https://github.com/ozymandias547/mealWatcher",
+	"dependencies": {
+		"express": "~4.3.1"
+	}
 }
