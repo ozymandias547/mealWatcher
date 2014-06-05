@@ -1,4 +1,2 @@
-extern
 node_modules
-tmp
-vendor
+client/bower_components

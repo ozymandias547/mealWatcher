@@ -1,7 +1,12 @@
 var express = require('express');
-var app = express();
+var path = require('path');
+
 var mongojs = require('mongojs');
 var db = mongojs('mealWatcher', ['recipes']);
+
+var app = express();
+
+app.use(express.static(path.join(__dirname, 'client')));
 
 var recipeRoutes = {
 	findAll: function(req, res) {
@@ -21,20 +26,22 @@ var recipeRoutes = {
 			if (err) {
 				console.log("Couldn't find that doc in the recipes.")
 				res.statusCode = 404;
+				dir
 				return res.send('Error 404: recipes');
 			}
 			res.json(doc);
 		})
 	}
-}
+};
 
 
 //JSON RESTful API routes
-app.get("/recipes", recipeRoutes.findAll)
-app.get("/recipes/:id", recipeRoutes.findById)
-// app.put("/recipes/:id", recipeRoutes.updateQuote)
-// app.post("/recipes", recipeRoutes.addQuote)
-// app.delete('/recipes/:id', recipeRoutes.deleteQuote)
-// app.get("/recipes/random", recipeRoutes.findRandom)
+//Remote methods
+
+app.get("/recipe", recipeRoutes.findAll);
+app.get("/recipe/:id", recipeRoutes.findById);
+// app.put("/recipe/:id", recipeRoutes.updateQuote)
+// app.post("/recipe", recipeRoutes.addQuote)
+// app.delete('/recipe/:id', recipeRoutes.deleteQuote)
 
 app.listen(3000);
