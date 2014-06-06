@@ -34,10 +34,6 @@ mealWatcher.config(['$routeProvider',
 	}
 ]);
 
-mealWatcher.controller('MainCtrl', function($scope) {
-	$scope.appName = "Skillet";
-});
-
 mealWatcher.controller('RecipeListCtrl', ['$scope', '$location', 'Recipe',
 	function($scope, $location, Recipe) {
 		$scope.pageName = "Recipe List";
@@ -54,7 +50,6 @@ mealWatcher.controller('RecipeViewCtrl', ['$scope', '$routeParams', 'Recipe', fu
 	$scope.pageName = "Recipe View";
 	
 	var recipe = Recipe.get({ id : $routeParams.recipe }, function() {
-		console.log(recipe)
 		$scope.recipe = recipe;
 	})
 
