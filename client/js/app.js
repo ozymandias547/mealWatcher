@@ -38,16 +38,22 @@ mealWatcher.controller('MainCtrl', function($scope) {
 	$scope.appName = "Skillet";
 });
 
-mealWatcher.controller('RecipeListCtrl', ['$scope', 'Recipe',
-	function($scope, Recipe) {
+mealWatcher.controller('RecipeListCtrl', ['$scope', '$location', 'Recipe',
+	function($scope, $location, Recipe) {
 		$scope.pageName = "Recipe List";
 		$scope.recipes = Recipe.query();
+
+		$scope.showRecipe = function() {
+			$location.path('recipe_view');
+		}
+
 	}
 ]);
 
-mealWatcher.controller('RecipeViewCtrl', function($scope) {
+mealWatcher.controller('RecipeViewCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
 	$scope.pageName = "Recipe View";
-});
+	// console.log($routeParams.id);
+}]);
 
 mealWatcher.controller('ShoppingListCtrl', function($scope) {
 	$scope.pageName = "Shopping List";
