@@ -19,7 +19,7 @@ mealWatcher.config(['$routeProvider',
 				templateUrl: '../views/recipe_list.html',
 				controller: 'RecipeListCtrl'
 			})
-			.when('/recipe_view:id', {
+			.when('/recipe_view/:recipe', {
 				templateUrl: '../views/recipe_view.html',
 				controller: 'RecipeViewCtrl'
 			})
@@ -44,7 +44,7 @@ mealWatcher.controller('RecipeListCtrl', ['$scope', '$location', 'Recipe',
 		$scope.recipes = Recipe.query();
 
 		$scope.showRecipe = function(id) {
-			$location.path('recipe_view?' + id);
+			$location.path('recipe_view/' + $scope.recipes[id]._id);
 		}
 
 	}
@@ -52,7 +52,11 @@ mealWatcher.controller('RecipeListCtrl', ['$scope', '$location', 'Recipe',
 
 mealWatcher.controller('RecipeViewCtrl', ['$scope', '$routeParams', 'Recipe', function($scope, $routeParams, Recipe) {
 	$scope.pageName = "Recipe View";
-	console.log($routeParams.id)
+	
+	var recipe = Recipe.get({ id : $routeParams.recipe }, function() {
+		console.log(recipe)
+		$scope.recipe = recipe;
+	})
 
 }]);
 
