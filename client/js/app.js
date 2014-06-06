@@ -6,12 +6,10 @@ var mealWatcher = angular.module('MealWatcher', [
 	'ngResource',
 	'ngRoute',
 	'ui.bootstrap'
-	// 'mWatcherServices'
 ]);
 
-mealWatcher.config(['$routeProvider', 
+mealWatcher.config(['$routeProvider',
 	function($routeProvider) {
-		console.log("router");
 		$routeProvider
 			.when('/main', {
 				templateUrl: '../views/main.html',
@@ -29,17 +27,23 @@ mealWatcher.config(['$routeProvider',
 				templateUrl: '../views/shopping_list.html',
 				controller: 'ShoppingListCtrl'
 			})
-			.otherwise({redirectTo:'/main'});
+			.otherwise({
+				redirectTo: '/main'
+			});
 
-}]);
+	}
+]);
 
 mealWatcher.controller('MainCtrl', function($scope) {
 	$scope.appName = "Skillet";
 });
 
-mealWatcher.controller('RecipeListCtrl', function($scope) {
-	$scope.pageName = "Recipe List";
-});
+mealWatcher.controller('RecipeListCtrl', ['$scope', 'Recipe',
+	function($scope, Recipe) {
+		$scope.pageName = "Recipe List";
+		$scope.recipes = Recipe.query();
+	}
+]);
 
 mealWatcher.controller('RecipeViewCtrl', function($scope) {
 	$scope.pageName = "Recipe View";
@@ -49,18 +53,11 @@ mealWatcher.controller('ShoppingListCtrl', function($scope) {
 	$scope.pageName = "Shopping List";
 });
 
-// var mWatcherServices = angular.module('mWatcherServices', ['ngResource']);
-
-// mWatcherServices.factory('Tasks', ['$resource',
-// 	function($resource) {
-// 		return $resource('https://api.mongolab.com/api/1/databases/sandbox/collections/tasks', {}, {
-// 			query: {
-// 				method: 'GET',
-// 				params: {
-// 					'apiKey': '25AYYZ_IQLIzVvorODhAr7VhWraMoLC5'
-// 				},
-// 				isArray: true
-// 			}
-// 		})
-// 	}
-// ]);
+angular.module('MealWatcher')
+	.factory('Recipe', ['$resource', function($resource) {
+		return $resource('/recipe/:id/', {}, {
+			'update': {
+				method: 'PUT'
+			}
+		});
+	}]);

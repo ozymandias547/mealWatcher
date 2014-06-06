@@ -8,6 +8,18 @@ var app = express();
 
 app.use(express.static(path.join(__dirname, 'client')));
 
+function loadFixtures() {
+	db.recipes.remove({});
+
+	db.recipes.insert({'name': 'Lasagna'});
+	db.recipes.insert({'name': 'Paninis'})
+	db.recipes.insert({'name': 'Spaghetti'})
+	db.recipes.insert({'name': 'Pizza'})
+
+}
+
+loadFixtures();
+
 var recipeRoutes = {
 	findAll: function(req, res) {
 		db.recipes.find(function(err, docs) {
