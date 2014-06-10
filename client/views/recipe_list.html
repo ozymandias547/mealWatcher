@@ -1,5 +1,8 @@
-<div class="list-group" ng-click="showRecipe($index)">
-	<div class="list-group-item" ng-repeat="recipe in recipes">
-		<input type="checkbox" ng-model="root.recipeSelect"/><span>{{recipe.name}}</span>
+<div class="recipeList">
+	<div class="recipeContainer" ng-repeat="recipe in recipes" ng-click="showRecipe($index)">
+		<div class="recipeName">{{recipe.name}}</div>
+		<div class="recipeCheckbox">
+			<span class="glyphicon glyphicon-ok-circle"></span>
+		</div>
 	</div>
 </div>

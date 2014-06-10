@@ -12,6 +12,22 @@ function loadFixtures() {
 	db.recipes.remove({});
 
 	db.recipes.insert({
+		'name': 'Grilled Chicken'
+	});
+
+	db.recipes.insert({
+		'name': 'Pizza'
+	});
+
+	db.recipes.insert({
+		'name': 'Sphagetti'
+	});
+
+	db.recipes.insert({
+		'name': 'Meat balls'
+	});
+
+	db.recipes.insert({
 		'name': 'Grilled Turkey Burgers with Cheddar and Smoky Aioli', 
 		'ingredients' : [
 			{ 

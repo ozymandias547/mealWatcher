@@ -1,0 +1,31 @@
+/*------------------------------------------
+
+Recipe list view styles
+
+------------------------------------------*/
+
+.recipeList {
+	width: 100%;
+	font-size: 16px;
+}
+
+.recipeList .recipeContainer {
+	min-height: 50px;
+}
+
+.recipeList .recipeName {
+	float: left;
+	width: 90%;
+}
+
+.recipeList .recipeCheckbox {
+	float: left;
+	width: 10%;
+	text-align: center;
+	font-size: 20px;
+}
+
+.recipeList .recipeCheckbox:hover {
+	color: gray;
+	cursor: pointer;
+}
