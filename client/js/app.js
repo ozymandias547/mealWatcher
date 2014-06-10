@@ -40,6 +40,7 @@ mealWatcher.controller('RecipeListCtrl', ['$scope', '$location', 'Recipe',
 		$scope.recipes = Recipe.query();
 
 		$scope.showRecipe = function(id) {
+			console.log("hi")
 			$location.path('recipe_view/' + $scope.recipes[id]._id);
 		}
 
