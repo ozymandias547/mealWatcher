@@ -28,7 +28,7 @@ mealWatcher.config(['$routeProvider',
 				controller: 'ShoppingListCtrl'
 			})
 			.otherwise({
-				redirectTo: '/main'
+				redirectTo: '/recipe_list'
 			});
 
 	}
