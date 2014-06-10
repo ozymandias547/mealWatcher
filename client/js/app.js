@@ -43,6 +43,9 @@ mealWatcher.controller('RecipeListCtrl', ['$scope', '$location', 'Recipe',
 			$location.path('recipe_view/' + $scope.recipes[id]._id);
 		}
 
+		$scope.toggleRecipeSelect = function() {
+			$scope.recipeSelect = !$scope.recipeSelect;
+		}
 	}
 ]);
 
