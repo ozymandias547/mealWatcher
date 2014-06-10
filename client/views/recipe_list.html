@@ -1,5 +1,5 @@
 <div class="list-group" ng-click="showRecipe($index)">
 	<div class="list-group-item" ng-repeat="recipe in recipes">
-		<input type="checkbox" ng-model="root.recipeSelect"/><span>{{recipe.name}}</span>
+		<span>{{recipe.name}}</span><input type="checkbox" ng-model="root.recipeSelect"/>
 	</div>
 </div>

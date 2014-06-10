@@ -9,4 +9,5 @@ body {
 
 input[type="checkbox"] {
 	padding-right: 10px;
+	float: right;
 }
