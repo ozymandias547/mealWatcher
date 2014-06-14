@@ -1,5 +1,9 @@
 <div class="starter-template">
-	<h3>{{recipe.name}}</h3>
+	<div class="title-container">
+		<div class="title">
+			<span>{{recipe.name}}</span>
+		</div>
+	</div>
 	<h5 ng-repeat="ingredient in recipe.ingredients">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</h5>
 	<p ng-repeat="step in recipe.preparation">{{step}}</p>
 </div>

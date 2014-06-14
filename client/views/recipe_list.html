@@ -1,7 +1,10 @@
 <div class="recipeList">
-	<div class="recipeContainer clearfix" ng-repeat="recipe in recipes" ng-click="showRecipe($index)">
+	<div class="recipeContainer clearfix" ng-repeat="recipe in recipes" ng-click="showRecipe($event, $index)">
+		<div class="recipe-marked">
+			<span class="glyphicon glyphicon-bookmark"></span>
+		</div>
 		<div class="recipeName">{{recipe.name}}</div>
-		<div class="recipeCheckbox">
+		<div class="recipeCheckbox" ng-click="toggleMark($event)">
 			<span class="glyphicon glyphicon-ok-circle"></span>
 		</div>
 	</div>

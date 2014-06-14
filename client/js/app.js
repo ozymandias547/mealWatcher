@@ -39,13 +39,28 @@ mealWatcher.controller('RecipeListCtrl', ['$scope', '$location', 'Recipe',
 		$scope.pageName = "Recipe List";
 		$scope.recipes = Recipe.query();
 
-		$scope.showRecipe = function(id) {
-			console.log("hi")
-			$location.path('recipe_view/' + $scope.recipes[id]._id);
+		$scope.showRecipe = function(e, id) {
+			console.log(e);
+
+			if (e.target.classList.contains('glyphicon')) {
+				var elem = $('.glyphicon-bookmark', e.currentTarget);
+
+				if (elem.css('top') == '0px')
+					elem.css('top', '-25px');
+				else
+					elem.css('top', '0px');
+
+			} else {
+				$location.path('recipe_view/' + $scope.recipes[id]._id);
+			}
 		}
 
 		$scope.toggleRecipeSelect = function() {
 			$scope.recipeSelect = !$scope.recipeSelect;
+		}
+
+		$scope.toggleMarked = function(e) {
+			console.log(e);
 		}
 	}
 ]);
