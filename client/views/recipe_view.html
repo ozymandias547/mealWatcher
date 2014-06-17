@@ -1,9 +1,25 @@
-<div class="starter-template">
-	<div class="title-container">
-		<div class="title">
-			<span>{{recipe.name}}</span>
-		</div>
+<div class="recipeView">
+	<h4 class="header">
+		<a ng-href="#recipeList" class="back"></a>
+		{{recipe.name}}
+	</h4>
+
+	<h4 class="title">Ingredients</h4>
+	
+	<ol>
+		<li ng-repeat="ingredient in recipe.ingredients">
+			{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}
+		</li>
+	</ol>
+	
+	<button ng-class="isViewingInstructions ? 'hidden' : ''" class="button-large" ng-click="toggleInstructions()">view instructions</button>
+	<div ng-class="isViewingInstructions ? '' : 'hidden'">
+		<h4 class="title" ng-click="toggleInstructions()">Instructions</h4>
+		<p ng-repeat="step in recipe.preparation">
+			{{step}}
+		</p>
 	</div>
-	<h5 ng-repeat="ingredient in recipe.ingredients">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</h5>
-	<p ng-repeat="step in recipe.preparation">{{step}}</p>
+
+	<a class="button-large" ng-href="#recipe_edit">edit recipe</a>
+
 </div>

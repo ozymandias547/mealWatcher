@@ -1,8 +1,7 @@
 /*------------------------------------------
-
-Recipe list view styles
-
+Global styles
 ------------------------------------------*/
+
 
 body {
 	font-family: 'Cantata One', serif;
@@ -11,24 +10,32 @@ body {
 	background-color: #eee;
 }
 
-.recipeList {
-	width: 100%;
-	font-size: 16px;
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'Cantata One', serif;
+	margin: 0;
 }
 
-div.title-container {
+input[type="checkbox"] {
+	padding-right: 10px;
+	float: right;
+}
+
+/*------------------------------------------
+Unorganized rules
+------------------------------------------*/
+
+.title-container {
 	text-align: center;
 }
 
-div.title {
-	display: inline-block;
+.title {
 	color: #36273c;
 	padding-bottom: 10px;
-	border-bottom: 1px solid #dad0dd;
+	text-transform: uppercase;
 }
 
-div.title > span {
-	font-family: 'Cantata One', serif;
+.title > span {
 	font-size: 32px;
 }
 
@@ -45,6 +52,16 @@ div.title > span {
 	display: inline-block;
 }
 
+/*------------------------------------------
+View: Recipe List rules
+------------------------------------------*/
+
+.recipeList {
+	width: 100%;
+	font-size: 16px;
+	text-align: left;
+}
+
 .recipeList .recipeContainer {
 	border-bottom: 1px solid #dad0dd;
 }
@@ -56,6 +73,9 @@ div.title > span {
 .recipeList .recipeName {
 	padding: 5px 10px 5px 15px;
 	overflow: hidden;
+}
+.recipeList .recipeName:hover {
+	cursor: default;
 }
 
 .recipeList .recipe-marked {
@@ -75,4 +95,66 @@ div.title > span {
 .recipeList .recipeCheckbox:hover {
 	color: gray;
 	cursor: pointer;
+}
+
+/*------------------------------------------
+View: Recipe View rules
+------------------------------------------*/
+
+.recipeView {
+	text-align: left;
+	margin: 10px;
+}
+
+.recipeView .header {
+	text-transform:uppercase;
+	width: 100%;
+	line-height: 30px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #dad0dd;
+}
+
+.recipeView a.back {
+	float: right;
+	padding: 0;
+	width: 40px;
+	height: 30px;
+	background: url('/images/menu21.png');
+	background-size: 100% 100%;
+	border: none;
+}
+
+.recipeView ol {
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+
+.recipeView li {
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+
+.recipeView .button-large {
+	font-size: 14px;
+	border: none;
+	width: 100%;
+	margin-bottom: 10px;
+	color: #583f60;
+	background: #ddd;
+	display: block;
+	text-transform: uppercase;
+	padding: 5px 0;
+	text-align: center;
+}
+.recipeView .button-large:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.recipeView p {
+	font-size: 13px;
+	text-indent: 30px;
+	line-height: 1.5;
+	margin-bottom: 15px;
 }
