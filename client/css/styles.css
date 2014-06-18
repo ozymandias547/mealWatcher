@@ -53,6 +53,46 @@ Unorganized rules
 }
 
 /*------------------------------------------
+Component: form rules;
+------------------------------------------*/
+
+.skilletForm {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+	color: #36273c;
+}
+
+.skilletForm .btn-primary{
+	background-color: #dad0dd;
+	color: #36273c;
+	border: none;
+	padding: 5px 0;
+	font-size: 14px;
+}
+
+.skilletForm .header {
+	text-transform:uppercase;
+	width: 100%;
+	line-height: 30px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #dad0dd;
+}
+
+.skilletForm .form-control {
+	margin-bottom: 5px;
+}
+
+.skilletForm .checkbox {
+	font-size: 14px;
+}
+
+.skilletForm .form-control:focus {
+	border-color: #36273c;
+}
+
+/*------------------------------------------
 View: Recipe List rules
 ------------------------------------------*/
 

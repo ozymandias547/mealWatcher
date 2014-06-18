@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser')
 
 var mongojs = require('mongojs');
 var db = mongojs('mealWatcher', ['recipes']);
@@ -7,6 +8,7 @@ var db = mongojs('mealWatcher', ['recipes']);
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'client')));
+app.use(bodyParser.urlencoded())
 
 function loadFixtures() {
 	db.recipes.remove({});
@@ -144,6 +146,16 @@ var recipeRoutes = {
 		})
 	}
 };
+
+//Login & registration routes
+
+app.post("/login", function(req, res) {
+	res.redirect('/app.html');
+});
+
+app.post("/register", function(req, res) {
+	res.json(req.body);
+});
 
 
 //JSON RESTful API routes
