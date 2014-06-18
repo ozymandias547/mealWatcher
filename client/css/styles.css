@@ -52,6 +52,13 @@ Unorganized rules
 	display: inline-block;
 }
 
+.loginLogo {
+	margin: 0 auto;
+	margin-top: 84px;
+	display: block;
+	width: 50px;
+}
+
 /*------------------------------------------
 Component: form rules;
 ------------------------------------------*/
