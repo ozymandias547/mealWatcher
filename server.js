@@ -1,16 +1,35 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
-var passport = require('passport');
-var app = express();
+var express = require('express'),
+ 	path = require('path'),
+ 	bodyParser = require('body-parser'),
+ 	cookieParser = require('cookie-parser'),
+ 	session = require('express-session'),
+ 	MongoStore = require('connect-mongo')(session),
+ 	passport = require('passport'),
+	app = express(),
+ 	morgan = require('morgan'),
+ 	config = require('./lib/config/config'),
+	db = require('./lib/db/mongo').db;
 
-require('./lib/fixtures/recipeFixtures.js');
-require('./lib/fixtures/userFixtures.js');
+require('./lib/models/User');
+require('./lib/models/Recipe');
+require('./lib/fixtures/recipeFixtures');
+require('./lib/fixtures/userFixtures');
+require('./lib/config/auth');
 
+app.use(morgan('short'));		// HTTP logger for node
 app.use(express.static(path.join(__dirname, 'client')));
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({
+	secret: config.cookie_session,
+	store: new MongoStore({
+		url: config.db,
+		collection: "session"
+	})
+}));
 
-// Boostrap our routes
-require('./lib/routes.js')(app);
+require('./lib/config/routes.js')(app);
 
-app.listen(3000);
+app.listen(config.port, function() {
+	console.log("listening on port " + config.port);
+});
