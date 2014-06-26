@@ -10,14 +10,15 @@
     <form class="skilletForm" role="form" id="login" action="login" method="post">
         <h2 class="header">Please sign in</h2>
         <input 
-            type="email" 
+            type="text" 
             class="form-control" 
-            placeholder="Email address" 
-            name="email" 
+            placeholder="email or username" 
+            name="emailOrUsername" 
             required="" 
             autofocus=""
+            <% if (typeof userOrEmail !== "undefined") { %> value="<%= userOrEmail %>" <% } %>
         />
-        <input type="password" class="form-control" placeholder="Password" name="password" required="" value="">
+        <input type="password" class="form-control" placeholder="password" name="password" required="" value="">
         <% if (typeof error !== "undefined") { %>
             <div class="formError"><%= error %></div>
         <% } %>

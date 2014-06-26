@@ -11,12 +11,31 @@
     
         <form class="skilletForm" role="form" action="register" method="post">
             <h2 class="header">Register</h2>
-            <input type="text" class="form-control" placeholder="Username" name="username" required="" autofocus="">
-            <input type="email" class="form-control" placeholder="Email address" name="email" required="" autofocus="">
-            <input type="password" class="form-control" placeholder="Password" name="password" required="">
-            <input type="password" class="form-control" placeholder="Repeat Password" name="password2" required="">
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="username" 
+                name="username" 
+                required="" 
+                autofocus=""
+                <% if (typeof username !== "undefined") { %> value="<%= username %>" <% } %>
+            />
+            <input 
+                type="email" 
+                class="form-control" 
+                placeholder="email address" 
+                name="email" 
+                required="" 
+                autofocus=""
+                <% if (typeof email !== "undefined") { %> value="<%= email %>" <% } %>
+            />
+            <input type="password" class="form-control" placeholder="password" name="password" required="">
+            <input type="password" class="form-control" placeholder="password again" name="password2" required="">
+            <% if (typeof error !== "undefined") { %>
+                <div class="formError"><%= error %></div>
+            <% } %>
             <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
-            <a href="index.html" class="btn btn-lg btn-primary btn-block">Cancel</a>
+            <a href="/" class="btn btn-lg btn-primary btn-block">Cancel</a>
         </form>
     </div>
 </body>
